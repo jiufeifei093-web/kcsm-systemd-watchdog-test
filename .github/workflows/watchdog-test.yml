@@ -1,0 +1,17 @@
+name: KCSM systemd Watchdog test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Run Hang and Crash verification
+        run: bash test.sh

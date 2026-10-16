@@ -1,0 +1,15 @@
+[Unit]
+Description=KCSM systemd Watchdog minimal demo
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/kcsm-watchdog-demo
+NotifyAccess=main
+WatchdogSec=6s
+Restart=on-failure
+RestartSec=1s
+TimeoutAbortSec=3s
+LimitCORE=0
+
+[Install]
+WantedBy=multi-user.target
